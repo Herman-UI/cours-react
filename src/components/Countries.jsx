@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import Card from './Card';
 
 const Countries = () => {
-    const [date, setDate] = useState([])
+    const [data, setData] = useState([])
 
+    useEffect(() => {
+        axios.get('https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag').then((res) => setData(res.data));
+        console.log(data);
+    }, []);
 
     return (
-        <div>
-            Countries
+        <div className="countries">
+            <ul className="countries-list">
+                {data.map((country) => (
+                    <Card />
+                ))}
+            </ul>
         </div>
     );
 };
