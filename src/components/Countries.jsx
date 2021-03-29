@@ -14,7 +14,7 @@ const Countries = () => {
         <div className="countries">
             <ul className="countries-list">
                 {data.map((country) => (
-                    <Card />
+                    <Card country={country} key={country.name} />
                 ))}
             </ul>
         </div>
