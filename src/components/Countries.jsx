@@ -8,7 +8,7 @@ const Countries = () => {
     useEffect(() => {
         axios.get('https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag').then((res) => setData(res.data));
         console.log(data);
-    }, []);
+    }, [data]);
 
     return (
         <div className="countries">
