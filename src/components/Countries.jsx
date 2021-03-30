@@ -27,10 +27,14 @@ const Countries = () => {
             setSortedData(sortedArray)
         }
         sortedCountry();
-    }, [data, playOne, rangeValue]);
+    }, [data, rangeValue, playOne]);
 
     return (
         <div className="countries">
+            <div className="sort-container">
+                <input type="range" min="1" max="250" value={rangeValue} 
+                onChange={(e) => setRangeValue(e.target.value)} />
+            </div>
             <ul className="countries-list">
                 {sortedData.map((country) => (
                     <Card country={country} key={country.name} />
